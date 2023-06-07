@@ -1,6 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Lorinos",
+    "\\Lorinos\\App_Start"
   ],
+  "SelectedNode": "\\Lorinos\\App_Start\\BundleConfig.cs",
   "PreviewInSolutionExplorer": false
 }
