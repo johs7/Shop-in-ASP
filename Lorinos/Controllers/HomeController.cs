@@ -26,5 +26,10 @@ namespace Lorinos.Controllers
 
             return View();
         }
+        public ActionResult PaginaTest()
+        {
+            
+            return View();
+        }
     }
 }     
