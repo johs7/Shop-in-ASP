@@ -94,3 +94,32 @@ Descripcion varchar(45) not null,
 IdProvincia varchar(4) not null,
 IdDepartamento varchar(2) not null,
 )
+
+
+INSERT INTO usuario (Nombres, Apellidos, Correo, Clave)
+VALUES ('Johanssen', 'Roque', 'Roquejohanssen@gmail.com', 'D9A31550033EE07D6E14302EEA8202C07C266B633154513D817CA8BB91DE40D1');
+select*from usuario
+
+
+
+
+insert into departamento(IdDepartamento,Descripcion) values 
+('01','Arequipa'),
+('02','Ica'),
+('03','	Lima')
+
+INSERT INTO distrito (IdDistrito, Descripcion, IdProvincia, IdDepartamento) VALUES
+('010101', 'Nieva', '0101', '01'),
+('010102', 'El Cenepa', '0101', '01'),
+('010201', 'Camaná', '0102', '01'),
+('010202', 'José María Quimper', '0102', '01'),
+('020101', 'Ica', '0201', '02'),
+('020102', 'La Tinguiña', '0201', '02'),
+('020201', 'Chincha Alta', '0202', '02'),
+('020202', 'Alto Laran', '0202', '02'),
+('030101', 'Lima', '0301', '03'),
+('030102', 'Ancón', '0301', '03'),
+('030201', 'Barranca', '0302', '03'),
+('030202', 'Paramonga', '0302', '03');
+
+select* from distrito
