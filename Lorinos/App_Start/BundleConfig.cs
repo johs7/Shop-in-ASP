@@ -11,6 +11,9 @@ namespace Lorinos
             bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
                         "~/Scripts/jquery-{version}.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/complementos").Include(
+                 "~/Scripts/sb-admin-2.js"));
+
             //bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
             //            "~/Scripts/jquery.validate*"));
 
