@@ -12,7 +12,8 @@ namespace Lorinos
                         "~/Scripts/jquery-{version}.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/complementos").Include(
-                 "~/Scripts/sb-admin-2.js"));
+                 "~/Scripts/script.js",
+                 "~/Scripts/fontawesome/all.min.js"));
 
             //bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
             //            "~/Scripts/jquery.validate*"));
@@ -25,7 +26,7 @@ namespace Lorinos
             bundles.Add(new Bundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.bundle.js"));
             
-            bundles.Add(new StyleBundle("~/Content/css").Include ("~/Content/site.css"));
+            bundles.Add(new StyleBundle("~/Content/css").Include ("~/Content/Site.css"));
         }
     }
 }
