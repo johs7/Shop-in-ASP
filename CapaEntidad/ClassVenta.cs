@@ -18,6 +18,6 @@ namespace CapaEntidad
         public string Telefono { get; set; }
         public string FechaTexto { get; set; }
         public string IdTransaccion { get; set; }
-
+        public List<ClassDetalleVenta> oListaDetalleVenta { get; set; }
     }
 }
