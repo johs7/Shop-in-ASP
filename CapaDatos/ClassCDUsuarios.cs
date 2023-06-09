@@ -41,15 +41,6 @@ namespace CapaDatos
                         }   
                     }
                 } 
-
-
-
-
-
-
-
-
-
             }
             catch
             {
