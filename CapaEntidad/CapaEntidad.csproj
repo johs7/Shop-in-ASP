@@ -46,6 +46,7 @@
     <Compile Include="ClassCliente.cs" />
     <Compile Include="ClassDepartamento.cs" />
     <Compile Include="ClassDetalleVenta.cs" />
+    <Compile Include="ClassDistrito.cs" />
     <Compile Include="ClassMarca.cs" />
     <Compile Include="ClassProducto.cs" />
     <Compile Include="ClassProvincia.cs" />
