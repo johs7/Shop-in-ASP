@@ -44,6 +44,7 @@
     <Compile Include="ClassCarrito.cs" />
     <Compile Include="ClassCategoria.cs" />
     <Compile Include="ClassCliente.cs" />
+    <Compile Include="ClassDetalleVenta.cs" />
     <Compile Include="ClassMarca.cs" />
     <Compile Include="ClassProducto.cs" />
     <Compile Include="ClassVenta.cs" />
