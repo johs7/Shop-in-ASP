@@ -8,5 +8,7 @@ namespace CapaEntidad
 {
     public class ClassDepartamento
     {
+        public int IdDepartamento { get; set; }
+        public string Descripcion { get; set; }
     }
 }
