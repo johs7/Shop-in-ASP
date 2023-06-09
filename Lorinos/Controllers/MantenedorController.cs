@@ -9,7 +9,7 @@ namespace Lorinos.Controllers
     public class MantenedorController : Controller
     {
         // GET: Mantenedor
-        public ActionResult Index()
+        public ActionResult Categoria()
         {
             return View();
         }
