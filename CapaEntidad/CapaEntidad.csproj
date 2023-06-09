@@ -48,6 +48,7 @@
     <Compile Include="ClassDetalleVenta.cs" />
     <Compile Include="ClassMarca.cs" />
     <Compile Include="ClassProducto.cs" />
+    <Compile Include="ClassProvincia.cs" />
     <Compile Include="ClassUsuario.cs" />
     <Compile Include="ClassVenta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
