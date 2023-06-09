@@ -6,7 +6,13 @@ using System.Threading.Tasks;
 
 namespace CapaEntidad
 {
-    internal class ClassDetalleVenta
+   public class ClassDetalleVenta
     {
+        public int IdDetalleVenta { get; set; }
+        public int IdVenta { get; set; }
+        public ClassProducto oProducto { get; set; }
+        public int Cantidad { get; set; }
+        public decimal Total { get; set; }
+        public string IdTransaccion { get; set; }
     }
 }
