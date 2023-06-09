@@ -13,5 +13,9 @@ namespace Lorinos.Controllers
         {
             return View();
         }
+        public ActionResult Marca()
+        {
+            return View();
+        }
     }
 }
