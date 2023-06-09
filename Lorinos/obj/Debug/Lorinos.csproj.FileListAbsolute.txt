@@ -256,3 +256,9 @@ C:\Users\Johan R\source\repos\Shop-in-ASP\Lorinos\obj\Debug\Lorinos.csproj.CoreC
 C:\Users\Johan R\source\repos\Shop-in-ASP\Lorinos\obj\Debug\Lorinos.csproj.CopyComplete
 C:\Users\Johan R\source\repos\Shop-in-ASP\Lorinos\obj\Debug\Lorinos.dll
 C:\Users\Johan R\source\repos\Shop-in-ASP\Lorinos\obj\Debug\Lorinos.pdb
+C:\Users\Johan R\source\repos\Shop-in-ASP\Lorinos\bin\CapaEntidad.dll
+C:\Users\Johan R\source\repos\Shop-in-ASP\Lorinos\bin\CapaNegocios.dll
+C:\Users\Johan R\source\repos\Shop-in-ASP\Lorinos\bin\CapaDatos.dll
+C:\Users\Johan R\source\repos\Shop-in-ASP\Lorinos\bin\CapaEntidad.pdb
+C:\Users\Johan R\source\repos\Shop-in-ASP\Lorinos\bin\CapaNegocios.pdb
+C:\Users\Johan R\source\repos\Shop-in-ASP\Lorinos\bin\CapaDatos.pdb

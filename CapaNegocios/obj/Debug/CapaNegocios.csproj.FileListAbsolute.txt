@@ -1,0 +1,11 @@
+C:\Users\Johan R\source\repos\Shop-in-ASP\CapaNegocios\bin\Debug\CapaNegocios.dll
+C:\Users\Johan R\source\repos\Shop-in-ASP\CapaNegocios\bin\Debug\CapaNegocios.pdb
+C:\Users\Johan R\source\repos\Shop-in-ASP\CapaNegocios\bin\Debug\CapaDatos.dll
+C:\Users\Johan R\source\repos\Shop-in-ASP\CapaNegocios\bin\Debug\CapaEntidad.dll
+C:\Users\Johan R\source\repos\Shop-in-ASP\CapaNegocios\bin\Debug\CapaDatos.pdb
+C:\Users\Johan R\source\repos\Shop-in-ASP\CapaNegocios\bin\Debug\CapaEntidad.pdb
+C:\Users\Johan R\source\repos\Shop-in-ASP\CapaNegocios\obj\Debug\CapaNegocios.csproj.AssemblyReference.cache
+C:\Users\Johan R\source\repos\Shop-in-ASP\CapaNegocios\obj\Debug\CapaNegocios.csproj.CoreCompileInputs.cache
+C:\Users\Johan R\source\repos\Shop-in-ASP\CapaNegocios\obj\Debug\CapaNegocios.csproj.CopyComplete
+C:\Users\Johan R\source\repos\Shop-in-ASP\CapaNegocios\obj\Debug\CapaNegocios.dll
+C:\Users\Johan R\source\repos\Shop-in-ASP\CapaNegocios\obj\Debug\CapaNegocios.pdb
