@@ -6,17 +6,12 @@ using System.Web.Mvc;
 
 namespace Lorinos.Controllers
 {
-    public class HomeController : Controller
+    public class MantenedorController : Controller
     {
-        // GET: Home
+        // GET: Mantenedor
         public ActionResult Index()
         {
             return View();
         }
-        public ActionResult Usuarios()
-        {
-            return View();
-        }
-     
     }
 }
