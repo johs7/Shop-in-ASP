@@ -1,5 +1,7 @@
-﻿using System.Web;
+﻿using System.Data;
+using System.Web;
 using System.Web.Optimization;
+using System.Web.UI.WebControls;
 
 namespace Lorinos
 {
@@ -8,12 +10,14 @@ namespace Lorinos
         // Para obtener más información sobre las uniones, visite https://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+            bundles.Add(new Bundle("~/bundles/jquery").Include(
+                        "~/Scripts/jquery-3.4.1.js"));
 
-            bundles.Add(new ScriptBundle("~/bundles/complementos").Include(
+            bundles.Add(new Bundle("~/bundles/complementos").Include(
                  "~/Scripts/script.js",
-                 "~/Scripts/fontawesome/all.min.js"));
+                 "~/Scripts/fontawesome/all.min.js",
+                  "~/Scripts/Datatables/jquery.dataTables.js",
+                  "~/Scripts/Datatables/dataTables.responsive.js"));
 
             //bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
             //            "~/Scripts/jquery.validate*"));
@@ -26,7 +30,11 @@ namespace Lorinos
             bundles.Add(new Bundle("~/bundles/bootstrap").Include(
                       "~/Scripts/bootstrap.bundle.js"));
             
-            bundles.Add(new StyleBundle("~/Content/css").Include ("~/Content/Site.css"));
+            bundles.Add(new StyleBundle("~/Content/css").Include (
+                "~/Content/Site.css",
+            "~/Content/DataTables/css/jquery.dataTables.css",
+                 "~/Content/DataTables/css/responsive.dataTables.css"
+                ));
         }
     }
 }

@@ -18,6 +18,7 @@ namespace Lorinos.Controllers
         {
             return View();
         }
+        [HttpGet]
      public JsonResult ListarUsuarios()
         {
             List<ClassUsuario> oLista = new List<ClassUsuario>();

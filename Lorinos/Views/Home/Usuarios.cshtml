@@ -36,3 +36,21 @@
         </table>
     </div>
 </div>
+
+@section scripts{
+    <script>
+        jQuery.ajax({
+            url: '@Url.Action("ListarUsuarios","Home")',
+            type: "GET",
+            dataType: "json",
+            contentType: "application/json; charset=utf-8",
+            success: function (data) {
+                debugger;
+                var texto = "hola im text uan";
+                console.log(data);
+                
+            }
+
+        })
+    </script>
+    }
