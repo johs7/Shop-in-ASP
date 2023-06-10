@@ -19,7 +19,7 @@
     <div class="card-body">
         <div class="row">
             <div class="col-12">
-                <button type="button" class="btn btn-success" onclick="abrirModal">Crear Nuevo Usuario</button>
+                <button type="button" class="btn btn-success" onclick="abrirModal()">Crear Nuevo Usuario</button>
             </div>
 
         </div>
@@ -43,9 +43,9 @@
 <!-- Modal -->
 <div class="modal fade" id="FormModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <div class="modal-content ">
+            <div class="modal-header bg-dark text-white">
+                <h5 class="modal-title" id="exampleModalLabel">Usuarios</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
@@ -60,55 +60,55 @@
 </div>
 
 
-
 @section scripts {
+    <style>
+        .btn-icon {
+            margin-right: 5px;
+        }
+    </style>
+
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             var tablaData;
-            jQuery.ajax({
-                url: '@Url.Action("ListarUsuarios","Home")',
-                type: "GET",
-                dataType: "json",
-                contentType: "application/json; charset=utf-8",
-                success: function (data) {
-                    console.log(data);
-                    tablaData = $("#tabla").DataTable({
-                        responsive: true,
-                        ordering: false,
-                        ajax: {
-                            url: '@Url.Action("ListarUsuarios","Home")',
-                            type: "GET",
-                            dataType: "json",
-                        },
-                        columns: [
-                            { data: "Nombres" },
-                            { data: "Apellidos" },
-                            { data: "Correo" },
-                            {
-                                data: "Activo",
-                                render: function (valor) {
-                                    if (valor) {
-                                        return '<span class="badge bg-success">Si</span>';
-                                    } else {
-                                        return '<span class="badge bg-danger">No</span>';
-                                    }
-                                }
-                            },
-                            {
-                                data: null,
-                                defaultContent: '<button type="button" class="btn btn-primary btn-sm"><i class="fas fa-pen"></i></button>' +
-                                    '<button type="button" class="btn btn-danger btn-sm"><i class="fas fa-trash"></i></button>',
-                                orderable: false,
-                                searchable: false,
-                                width: "100px"
+
+            tablaData = $("#tabla").DataTable({
+                responsive: true,
+                ordering: false,
+                ajax: {
+                    url: '@Url.Action("ListarUsuarios","Home")',
+                    type: "GET",
+                    dataType: "json"
+                },
+                columns: [
+                    { data: "Nombres" },
+                    { data: "Apellidos" },
+                    { data: "Correo" },
+                    {
+                        data: "Activo",
+                        render: function (valor) {
+                            if (valor) {
+                                return '<span class="badge bg-success">Si</span>';
+                            } else {
+                                return '<span class="badge bg-danger">No</span>';
                             }
-                        ],
-                        language: {
-                            url: "https://cdn.datatables.net/plug-ins/1.11.3/i18n/es_es.json"
                         }
-                    });
+                    },
+                    {
+                        data: null,
+                        defaultContent: '<button type="button" class="btn btn-primary btn-sm btn-icon"><i class="fas fa-pen"></i></button>' +
+                            '<button type="button" class="btn btn-danger btn-sm btn-icon"><i class="fas fa-trash"></i></button>',
+                        orderable: false,
+                        searchable: false,
+                        width: "100px"
+                    }
+                ],
+                language: {
+                    url: "https://cdn.datatables.net/plug-ins/1.11.3/i18n/es_es.json"
                 }
             });
         });
+        function abrirModal() {
+            $("#FormModal").modal("show");
+        }
     </script>
 }
