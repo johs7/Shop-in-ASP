@@ -23,7 +23,7 @@ namespace Lorinos.Controllers
         {
             List<ClassUsuario> oLista = new List<ClassUsuario>();
             oLista= new ClassCNUsuarios().Listar();
-            return Json(oLista, JsonRequestBehavior.AllowGet);
+            return Json(new { data = oLista }, JsonRequestBehavior.AllowGet);
         }
     }
 }

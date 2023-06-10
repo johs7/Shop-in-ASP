@@ -14,10 +14,10 @@ namespace Lorinos
                         "~/Scripts/jquery-3.4.1.js"));
 
             bundles.Add(new Bundle("~/bundles/complementos").Include(
-                 "~/Scripts/script.js",
                  "~/Scripts/fontawesome/all.min.js",
-                  "~/Scripts/Datatables/jquery.dataTables.js",
-                  "~/Scripts/Datatables/dataTables.responsive.js"));
+                  "~/Scripts/DataTables/jquery.dataTables.js",
+                  "~/Scripts/DataTables/dataTables.responsive.js",
+                   "~/Scripts/script.js"));
 
             //bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
             //            "~/Scripts/jquery.validate*"));
@@ -31,9 +31,9 @@ namespace Lorinos
                       "~/Scripts/bootstrap.bundle.js"));
             
             bundles.Add(new StyleBundle("~/Content/css").Include (
-                "~/Content/Site.css",
+            "~/Content/Site.css",
             "~/Content/DataTables/css/jquery.dataTables.css",
-                 "~/Content/DataTables/css/responsive.dataTables.css"
+            "~/Content/DataTables/css/responsive.dataTables.css"
                 ));
         }
     }

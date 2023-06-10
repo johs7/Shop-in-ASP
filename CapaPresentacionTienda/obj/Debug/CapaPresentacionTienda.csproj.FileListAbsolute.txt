@@ -170,3 +170,9 @@ C:\Users\Johan R\source\repos\Shop-in-ASP\CapaPresentacionTienda\obj\Debug\CapaP
 C:\Users\Johan R\source\repos\Shop-in-ASP\CapaPresentacionTienda\obj\Debug\CapaPresentacionTienda.csproj.CopyComplete
 C:\Users\Johan R\source\repos\Shop-in-ASP\CapaPresentacionTienda\obj\Debug\CapaPresentacionTienda.dll
 C:\Users\Johan R\source\repos\Shop-in-ASP\CapaPresentacionTienda\obj\Debug\CapaPresentacionTienda.pdb
+C:\Users\Johan R\source\repos\Shop-in-ASP\CapaPresentacionTienda\bin\CapaEntidad.dll
+C:\Users\Johan R\source\repos\Shop-in-ASP\CapaPresentacionTienda\bin\CapaNegocios.dll
+C:\Users\Johan R\source\repos\Shop-in-ASP\CapaPresentacionTienda\bin\CapaDatos.dll
+C:\Users\Johan R\source\repos\Shop-in-ASP\CapaPresentacionTienda\bin\CapaEntidad.pdb
+C:\Users\Johan R\source\repos\Shop-in-ASP\CapaPresentacionTienda\bin\CapaNegocios.pdb
+C:\Users\Johan R\source\repos\Shop-in-ASP\CapaPresentacionTienda\bin\CapaDatos.pdb

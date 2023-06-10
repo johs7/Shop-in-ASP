@@ -4,6 +4,7 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+
 <ol class="breadcrumb mb-4 mt-4">
     <li class="breadcrumb-item"><a href="index.html">Resumen</a></li>
     <li class="breadcrumb-item active">Usuarios</li>
@@ -37,20 +38,47 @@
     </div>
 </div>
 
-@section scripts{
+@section scripts {
+    <script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
     <script>
-        jQuery.ajax({
-            url: '@Url.Action("ListarUsuarios","Home")',
-            type: "GET",
-            dataType: "json",
-            contentType: "application/json; charset=utf-8",
-            success: function (data) {
-                debugger;
-                var texto = "hola im text uan";
-                console.log(data);
-                
-            }
+        $(document).ready(function() {
+            var tablaData;
+            
+            jQuery.ajax({
+                url: '@Url.Action("ListarUsuarios","Home")',
+                type: "GET",
+                dataType: "json",
+                contentType: "application/json; charset=utf-8",
+                success: function (data) {
+                    console.log(data);
+                    tablaData = $("#tabla").DataTable({
+                        responsive: true,
+                        ordering: false,
+                        "ajax": {
+"url": '@Url.Action("ListarUsuarios","Home")',
+                            "type": "GET",
+                            "dataType": "json",
+                         
+                        },
+                        "columns": [
+                            { "data": "Nombres" },
+                            { "data": "Apellidos" },
+                            { "data": "Correo" },
+                            {
+                                "data": "Activo", "render": function (valor) {
+                                    if (valor) {
+                                        return '<span class="badge bg-success">Si</span>'
+                                    } else {
+                                        return '<span class="badge bg-danger">No</span>'
 
-        })
+                                    }
+                                }
+                            },
+                        ]
+                    })
+                }
+            });
+        });
     </script>
-    }
+}
