@@ -97,7 +97,7 @@
         $(document).ready(function () {
             var tablaData;
 
-            tablaData = $("#tabla").DataTable({
+            tablaData = $("#tabla").dataTable({
                 responsive: true,
                 ordering: false,
                 ajax: {
@@ -135,6 +135,9 @@
         });
         function abrirModal() {
             $("#FormModal").modal("show");
+        }
+        $("#tabla tbody").on("click", ".btn-editar", function (){
+            var filaseleccionada= $(this).closest("tr");
         }
     </script>
 }
