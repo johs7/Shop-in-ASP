@@ -1,10 +1,9 @@
-﻿<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
-<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+﻿
+
 @{
     ViewBag.Title = "Usuarios";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
 
 <ol class="breadcrumb mb-4 mt-4">
     <li class="breadcrumb-item"><a href="index.html">Resumen</a></li>
@@ -19,9 +18,8 @@
     <div class="card-body">
         <div class="row">
             <div class="col-12">
-                <button type="button" class="btn btn-success" onclick="abrirModal()">Crear Nuevo Usuario</button>
+                <button type="button" class="btn btn-success" onclick="abrirModal(null)">Crear Nuevo Usuario</button>
             </div>
-
         </div>
         <hr />
         <table id="tabla" class="display" style="width:100%">
@@ -40,7 +38,6 @@
     </div>
 </div>
 
-!-- Modal -->
 <div class="modal fade" id="FormModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -51,19 +48,19 @@
             <div class="modal-body g-2">
                 <div class="row">
                     <div class="col-sm-6">
-                        <label for="Names" class="form-label">Nombres</label>
+                        <label for="txtnombres" class="form-label">Nombres</label>
                         <input type="text" class="form-control" id="txtnombres">
                     </div>
                     <div class="col-sm-6">
-                        <label for="LastNames" class="form-label">Apellidos</label>
+                        <label for="txtapellidos" class="form-label">Apellidos</label>
                         <input type="text" class="form-control" id="txtapellidos">
                     </div>
                     <div class="col-sm-6">
-                        <label for="userEmail" class="form-label">Correo</label>
+                        <label for="txtcorreo" class="form-label">Correo</label>
                         <input type="email" class="form-control" id="txtcorreo" placeholder="name@example.com">
                     </div>
                     <div class="col-sm-6">
-                        <label for="userPassword" class="form-label">Clave</label>
+                        <label for="txtpass" class="form-label">Clave</label>
                         <input type="password" class="form-control" id="txtpass">
                     </div>
                     <div class="col-sm-6">
@@ -74,8 +71,8 @@
                             <option value="0">No</option>
                         </select>
                     </div>
-                </div>
 
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -85,7 +82,6 @@
     </div>
 </div>
 
-
 @section scripts {
     <style>
         .btn-icon {
@@ -94,14 +90,14 @@
     </style>
 
     <script>
-        $(document).ready(function () {
-            var tablaData;
+        var tabladata; // Declarar la variable en el ámbito global
 
-            tablaData = $("#tabla").dataTable({
+        $(document).ready(function () {
+            tabladata = $("#tabla").DataTable({
                 responsive: true,
                 ordering: false,
                 ajax: {
-                    url: '@Url.Action("ListarUsuarios","Home")',
+                    url: '@Url.Action("ListarUsuarios", "Home")',
                     type: "GET",
                     dataType: "json"
                 },
@@ -133,11 +129,19 @@
                 }
             });
         });
-        function abrirModal() {
+
+        function abrirModal(json) {
+            if (json != null) {
+                $("#txtnombres").val(json.Nombres)
+                $("#txtapellidos").val(json.Apellidos)
+            }
             $("#FormModal").modal("show");
         }
-        $("#tabla tbody").on("click", ".btn-editar", function (){
-            var filaseleccionada= $(this).closest("tr");
-        }
+        $("#tabla tbody").on("click", '.btn-editar', function () {
+            var filaseleccionada = $(this).closest("tr");
+            var data = tabladata.row(filaseleccionada).data();
+            abrirModal(data);
+      
+        })
     </script>
 }
