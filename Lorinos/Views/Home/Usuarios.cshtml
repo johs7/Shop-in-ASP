@@ -38,7 +38,7 @@
     </div>
 </div>
 
-<div class="modal fade" id="FormModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="FormModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header bg-dark text-white">
@@ -59,13 +59,10 @@
                         <label for="txtcorreo" class="form-label">Correo</label>
                         <input type="email" class="form-control" id="txtcorreo" placeholder="name@example.com">
                     </div>
+                  
                     <div class="col-sm-6">
-                        <label for="txtpass" class="form-label">Clave</label>
-                        <input type="password" class="form-control" id="txtpass">
-                    </div>
-                    <div class="col-sm-6">
-                        <label for="activeSelect" class="form-label">Activo</label>
-                        <select id="activeSelect" class="form-select col-sm-6">
+                        <label for="cboactivo" class="form-label">Activo</label>
+                        <select id="cboactivo" class="form-select col-sm-6">
                             <option selected>Open this select menu</option>
                             <option value="1">Si</option>
                             <option value="0">No</option>
@@ -134,6 +131,8 @@
             if (json != null) {
                 $("#txtnombres").val(json.Nombres)
                 $("#txtapellidos").val(json.Apellidos)
+                $("#txtcorreo").val(json.Correo)
+                $("#cboactivo").val(json.Activo==true? 1 : 0)
             }
             $("#FormModal").modal("show");
         }
