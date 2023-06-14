@@ -81,7 +81,7 @@ namespace CapaDatos
             }
             return idautogenerado;
         }
-        public int Editar(ClassUsuario obj,string Mensaje)
+        public bool Editar(ClassUsuario obj,string Mensaje)
         {
             bool resultado = false;
             Mensaje = string.Empty;
@@ -114,7 +114,7 @@ namespace CapaDatos
                 resultado = false;
                 Mensaje = ex.Message;
             }
-            return resultado
+            return resultado;
         }
     }
 }
