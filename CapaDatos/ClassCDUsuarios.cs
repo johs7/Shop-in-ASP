@@ -81,7 +81,7 @@ namespace CapaDatos
             }
             return idautogenerado;
         }
-        public bool Editar(ClassUsuario obj,string Mensaje)
+        public bool Editar(ClassUsuario obj, out string Mensaje)
         {
             bool resultado = false;
             Mensaje = string.Empty;
@@ -107,6 +107,28 @@ namespace CapaDatos
                     resultado = Convert.ToBoolean(cmd.Parameters["Resultado"].Value.ToString());
                     Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
 
+                }   
+            }
+            catch(Exception ex)
+            {
+                resultado = false;
+                Mensaje = ex.Message;
+            }
+            return resultado;
+        }
+        public bool Eliminar(int id, out string Mensaje)
+        {
+            bool resultado = false;
+            Mensaje = string.Empty;
+            try
+            {
+                using(SqlConnection oconexion=new SqlConnection(ClassConexion.cn))
+                {
+                    SqlCommand cmd=new SqlCommand("delete top (1) from usuario where IdUsuario=@id", oconexion);
+                    cmd.Parameters.AddWithValue("@id", id);
+                    cmd.CommandType=CommandType.Text;
+                    oconexion.Open();
+                    resultado= cmd.ExecuteNonQuery()> 0 ? true : false ;
                 }   
             }
             catch(Exception ex)

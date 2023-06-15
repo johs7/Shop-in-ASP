@@ -45,7 +45,7 @@ namespace CapaNegocios
             }
             
         }
-        public bool Editar(ClassUsuario obj, string Mensaje)
+        public bool Editar(ClassUsuario obj, out string Mensaje)
         {
             Mensaje = string.Empty;
 
@@ -61,6 +61,18 @@ namespace CapaNegocios
             {
                 Mensaje = "El campo Correo es obligatorio";
             }
+            if (string.IsNullOrEmpty(Mensaje))
+            {
+              return objCapaDato.Editar(obj, out Mensaje);
+            }
+            else
+            {
+                return false;
+            }
+        }
+        public bool Eliminar(int id, out string Mensaje)
+        {
+            return objCapaDato.Eliminar(id, out Mensaje);
         }
     }
 }
