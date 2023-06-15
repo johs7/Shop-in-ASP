@@ -35,6 +35,8 @@ namespace CapaNegocios
 
             if (string.IsNullOrEmpty(Mensaje))
             {
+                string clave = "johan";
+                obj.Clave = CN_Recurso.ConvertirSha256(clave);
                 return objCapaDato.Registrar(obj, out Mensaje);
             }
             else
