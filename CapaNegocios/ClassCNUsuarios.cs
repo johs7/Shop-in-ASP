@@ -45,5 +45,22 @@ namespace CapaNegocios
             }
             
         }
+        public bool Editar(ClassUsuario obj, string Mensaje)
+        {
+            Mensaje = string.Empty;
+
+            if (string.IsNullOrEmpty(obj.Nombres) || string.IsNullOrWhiteSpace(obj.Nombres))
+            {
+                Mensaje = "El campo Nombres es obligatorio";
+            }
+            else if (string.IsNullOrEmpty(obj.Apellidos) || string.IsNullOrWhiteSpace(obj.Apellidos))
+            {
+                Mensaje = "El campo Apellidos es obligatorio";
+            }
+            else if (string.IsNullOrEmpty(obj.Correo) || string.IsNullOrWhiteSpace(obj.Correo))
+            {
+                Mensaje = "El campo Correo es obligatorio";
+            }
+        }
     }
 }
