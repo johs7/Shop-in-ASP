@@ -45,10 +45,10 @@
                 <h5 class="modal-title" id="ModalUserCreate">Users Creator</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
-            <div class="modal-body g-2">
+            <div class="modal-body">
                 <input id="txtid" type="text" value="0"/>
 
-                <div class="row">
+                <div class="row  g-2">
                     <div class="col-sm-6">
                         <label for="txtnombres" class="form-label">Nombres</label>
                         <input type="text" class="form-control" id="txtnombres">
@@ -142,6 +142,7 @@
             $("#txtapellidos").val("");
             $("#txtcorreo").val("");
             $("#cboactivo").val(1);
+            $("#mensajeError").hide();
 
 
             if (json != null) {
