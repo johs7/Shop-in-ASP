@@ -51,15 +51,15 @@
                 <div class="row  g-2">
                     <div class="col-sm-6">
                         <label for="txtnombres" class="form-label">Nombres</label>
-                        <input type="text" class="form-control" id="txtnombres">
+                        <input type="text" class="form-control" id="txtnombres" autocomplete="off">
                     </div>
                     <div class="col-sm-6">
                         <label for="txtapellidos" class="form-label">Apellidos</label>
-                        <input type="text" class="form-control" id="txtapellidos">
+                        <input type="text" class="form-control" id="txtapellidos" autocomplete="off">
                     </div>
                     <div class="col-sm-6">
                         <label for="txtcorreo" class="form-label">Correo</label>
-                        <input type="email" class="form-control" id="txtcorreo" placeholder="name@example.com">
+                        <input type="email" class="form-control" id="txtcorreo" placeholder="name@example.com"  autocomplete="off">
                     </div>
                   
                     <div class="col-sm-6">
@@ -185,7 +185,8 @@
                             $("#FormModal").modal("hide");
                         }
                         else {
-                            alert(data.mensaje)
+                            $("#mensajeError").text(data.mensaje);
+                            $("#mensajeError").show();
                         }
 
                     }
