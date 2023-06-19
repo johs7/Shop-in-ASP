@@ -68,7 +68,7 @@ namespace CapaDatos
                     cmd.CommandType=CommandType.StoredProcedure;
                     oconexion.Open();
                     cmd.ExecuteNonQuery();
-                    idautogenerado = Convert.ToInt32(cmd.Parameters["Resultado"].Value.ToString());
+                    idautogenerado = Convert.ToInt32(cmd.Parameters["Resultado"].Value);
                     Mensaje = cmd.Parameters["Mensaje"].Value.ToString();
 
                 }
@@ -96,7 +96,7 @@ namespace CapaDatos
                     cmd.Parameters.AddWithValue("Correo", obj.Correo);
                     cmd.Parameters.AddWithValue("Clave", obj.Clave);
                     cmd.Parameters.AddWithValue("Activo", obj.Activo);
-                    cmd.Parameters.Add("Resultado",SqlDbType.Int).Direction=ParameterDirection.Output;
+                    cmd.Parameters.Add("Resultado",SqlDbType.Bit).Direction=ParameterDirection.Output;
                     cmd.Parameters.Add("Mensaje",SqlDbType.VarChar,500).Direction=ParameterDirection.Output;
                     cmd.CommandType=CommandType.StoredProcedure;
 
