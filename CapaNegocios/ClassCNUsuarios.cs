@@ -35,9 +35,25 @@ namespace CapaNegocios
 
             if (string.IsNullOrEmpty(Mensaje))
             {
-                string clave = "johan";
-                obj.Clave = CN_Recurso.ConvertirSha256(clave);
-                return objCapaDato.Registrar(obj, out Mensaje);
+                string clave=CN_Recurso.GenerarClave();
+
+                string asunto="Creación de cuenta";
+                string mensaje_correo="<h3>Su cuenta ha sido creada con éxito</h3></br><p> su contraseña es: ¡clave!</p>";
+                mensaje_correo=mensaje_correo.Replace("¡clave!",clave);
+             
+
+                bool respuesta=CN_Recurso.EnviarCorreo(obj.Correo,asunto,mensaje_correo);
+
+                if (respuesta)
+                {
+                    obj.Clave = CN_Recurso.ConvertirSha256(clave);
+                    return objCapaDato.Registrar(obj, out Mensaje);
+                }
+                else
+                {
+                    Mensaje = "No se pudo enviar el correo";
+                    return 0;
+                }
             }
             else
             {
