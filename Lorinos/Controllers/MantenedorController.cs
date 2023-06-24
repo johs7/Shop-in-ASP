@@ -31,5 +31,21 @@ using CapaNegocios;
             oLista = new ClassCNCategoria().Listar();
             return Json(new { data = oLista }, JsonRequestBehavior.AllowGet);
         }
+        [HttpPost]
+        public JsonResult GuardarCategoria(ClassCategoria obj)
+        {
+            object resultado;
+            string mensaje = string.Empty;
+
+            if (obj.IdCategoria == 0)
+            {
+                resultado = new ClassCNCategoria().Registrar(obj, out mensaje);
+            }
+            else
+            {
+                resultado = new ClassCNCategoria().Editar(obj, out mensaje);
+            }
+            return Json(new { resultado = resultado, mensaje = mensaje }, JsonRequestBehavior.AllowGet);
+        }
     }
 }
