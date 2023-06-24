@@ -1,10 +1,13 @@
-﻿using System;
+﻿using CapaEntidad;
+using CapaNegocios;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-
-namespace Lorinos.Controllers
+using CapaEntidad;
+using CapaNegocios;
+    namespace Lorinos.Controllers
 {
     public class MantenedorController : Controller
     {
@@ -20,6 +23,13 @@ namespace Lorinos.Controllers
         public ActionResult Producto()
         {
             return View();
+        }
+        [HttpGet]
+        public JsonResult ListarCategorias()
+        {
+            List<ClassCategoria> oLista = new List<ClassCategoria>();
+            oLista = new ClassCNCategoria().Listar();
+            return Json(new { data = oLista }, JsonRequestBehavior.AllowGet);
         }
     }
 }
