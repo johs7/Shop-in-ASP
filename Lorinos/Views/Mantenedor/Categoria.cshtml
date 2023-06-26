@@ -202,10 +202,10 @@
                 success: function (data) {
 
                     $(".modal-body").LoadingOverlay("hide")
-                    if (Usuario.IdCategoria == 0)
+                    if (Categoria.IdCategoria == 0)
                     {
                         if (data.resultado != 0) {
-                            Usuario.IdCategoria = data.resultado;
+                            Categoria.IdCategoria = data.resultado;
                             tabladata.row.add(Categoria).draw(false);
                             $("#FormModal").modal("hide");
                         }
