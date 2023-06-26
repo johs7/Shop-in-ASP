@@ -171,9 +171,9 @@
             success: function (data) {
                 if (data.resultado) {
                     tabladata.row(usuarioseleccionado).remove().draw();
-                    swal("Eliminado!", "Su registro ha sido eliminado.", "success");
+                    swal("Eliminado!", "Su Categoria ha sido eliminada.", "success");
                 } else {
-                    swal("Error!", "Su registro no se ha podido eliminar.", data.mensaje, "error");
+                    swal("Error!", "Su Categoria no se ha podido eliminar.", data.mensaje, "error");
                 }
             },
             error: function (error) {
