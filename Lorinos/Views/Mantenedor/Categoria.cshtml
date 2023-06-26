@@ -170,7 +170,7 @@
             contentType: "application/json; charset=utf-8",
             success: function (data) {
                 if (data.resultado) {
-                    tabladata.row(usuarioseleccionado).remove().draw();
+                    tabladata.row(categoriaseleccionada).remove().draw();
                     swal("Eliminado!", "Su Categoria ha sido eliminada.", "success");
                 } else {
                     swal("Error!", "Su Categoria no se ha podido eliminar.", data.mensaje, "error");
@@ -187,28 +187,26 @@
 
 
         function Guardar() {
-            var Usuario = {
-                IdUsuario: $("#txtid").val(),
+            var Categoria = {
+                IdCategoria: $("#txtid").val(),
                 Activo: $("#cboactivo").val() == 1 ? true : false,
-                Nombres: $("#txtnombres").val(),
-                Apellidos: $("#txtapellidos").val(),
-                Correo: $("#txtcorreo").val()
+                Descripcion: $("#txtdescripcion").val()
 
             }
             jQuery.ajax({
-                url: '@Url.Action("GuardarUsuarios", "Home")',
+                url: '@Url.Action("GuardarCategoria", "Mantenedor")',
                 type: "POST",
-                data: JSON.stringify({ obj : Usuario }),
+                data: JSON.stringify({ obj: Categoria }),
                 dataType: "json",
                 contentType: "application/json; charset=utf-8",
                 success: function (data) {
 
                     $(".modal-body").LoadingOverlay("hide")
-                    if (Usuario.IdUsuario == 0)
+                    if (Usuario.IdCategoria == 0)
                     {
                         if (data.resultado != 0) {
-                            Usuario.IdUsuario = data.resultado;
-                            tabladata.row.add(Usuario).draw(false);
+                            Usuario.IdCategoria = data.resultado;
+                            tabladata.row.add(Categoria).draw(false);
                             $("#FormModal").modal("hide");
                         }
                         else {
@@ -218,7 +216,7 @@
 
                     }
                     else {
-                        tabladata.row(filaseleccionada).data(Usuario).draw(false);
+                        tabladata.row(filaseleccionada).data(Categoria).draw(false);
                     }
 
                 },
