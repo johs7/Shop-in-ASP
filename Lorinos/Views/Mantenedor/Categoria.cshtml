@@ -128,14 +128,14 @@
 
         function abrirModal(json) {
             $("#txtid").val(0);
-            $("#txtcorreo").val("");
+            $("#txtdescripcion").val("");
             $("#cboactivo").val(1);
             $("#mensajeError").hide();
 
 
             if (json != null) {
-                $("#txtid").val(json.IdUsuario);             
-                $("#txtcorreo").val(json.Correo);
+                $("#txtid").val(json.IdCategoria);             
+                $("#txtdescripcion").val(json.Descripcion);
                 $("#cboactivo").val(json.Activo == true ? 1 : 0);
             }
             $("#FormModal").modal("show");
