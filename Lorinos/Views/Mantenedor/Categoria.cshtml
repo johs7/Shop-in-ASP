@@ -94,14 +94,13 @@
                 responsive: true,
                 ordering: false,
                 ajax: {
-                    url: '@Url.Action("ListarUsuarios", "Home")',
+                    url: '@Url.Action("ListarCategorias", "Mantenedor")',
                     type: "GET",
                     dataType: "json"
                 },
                 columns: [
-                    { data: "Nombres" },
-                    { data: "Apellidos" },
-                    { data: "Correo" },
+                    
+                    { data: "Descripcion" },
                     {
                         data: "Activo",
                         render: function (valor) {
@@ -129,17 +128,13 @@
 
         function abrirModal(json) {
             $("#txtid").val(0);
-            $("#txtnombres").val("");
-            $("#txtapellidos").val("");
             $("#txtcorreo").val("");
             $("#cboactivo").val(1);
             $("#mensajeError").hide();
 
 
             if (json != null) {
-                $("#txtid").val(json.IdUsuario);
-                $("#txtnombres").val(json.Nombres);
-                $("#txtapellidos").val(json.Apellidos);
+                $("#txtid").val(json.IdUsuario);             
                 $("#txtcorreo").val(json.Correo);
                 $("#cboactivo").val(json.Activo == true ? 1 : 0);
             }
