@@ -149,8 +149,8 @@
         })
 
        $("#tabla tbody").on("click", '.btn-eliminar', function () {
-    var usuarioseleccionado = $(this).closest("tr");
-    var data = tabladata.row(usuarioseleccionado).data();
+           var categoriaseleccionada = $(this).closest("tr");
+           var data = tabladata.row(categoriaseleccionada).data();
 
     swal({
         title: "Estás seguro?",
@@ -163,7 +163,7 @@
         closeOnConfirm: true,
     }, function () {
         $.ajax({
-            url: '/Home/EliminarUsuario',
+            url: '/Mantenedor/EliminarCategoria',
             type: "POST",
             data: JSON.stringify({ id: data.IdUsuario }),
             dataType: "json",
