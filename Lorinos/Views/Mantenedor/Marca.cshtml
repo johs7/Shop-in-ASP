@@ -136,7 +136,7 @@
 
 
             if (json != null) {
-                $("#txtid").val(json.IdCategoria);
+                $("#txtid").val(json.IdMarca);
                 $("#txtdescripcion").val(json.Descripcion);
                 $("#cboactivo").val(json.Activo == true ? 1 : 0);
             }
@@ -189,7 +189,7 @@
 
 
         function Guardar() {
-            var Categoria = {
+            var Marca = {
                 IdMarca: $("#txtid").val(),
                 Descripcion: $("#txtdescripcion").val(),
                 Activo: $("#cboactivo").val() == 1 ? true : false,
@@ -204,8 +204,7 @@
                 success: function (data) {
 
                     $(".modal-body").LoadingOverlay("hide")
-                    if (Marca.IdMarca == 0)
-                    {
+                    if (Marca.IdMarca == 0) {
                         if (data.resultado != 0) {
                             Marca.IdMarca = data.resultado;
                             tabladata.row.add(Marca).draw(false);
@@ -218,7 +217,16 @@
 
                     }
                     else {
-                        tabladata.row(filaseleccionada).data(Marca).draw(false);
+                        if (data.resultado) {
+                            tabladata.row(filaseleccionada).data(Marca).draw(false);
+                            filaseleccionada = null;
+                            $("#FormModal").modal("hide");
+                        }
+                        else {
+                           $("#mensajeError").text(data.mensaje);
+                            $("#mensajeError").show();
+                        
+                        }
                     }
 
                 },

@@ -202,8 +202,7 @@
                 success: function (data) {
 
                     $(".modal-body").LoadingOverlay("hide")
-                    if (Categoria.IdCategoria == 0)
-                    {
+                    if (Categoria.IdCategoria == 0) {
                         if (data.resultado != 0) {
                             Categoria.IdCategoria = data.resultado;
                             tabladata.row.add(Categoria).draw(false);
@@ -216,7 +215,15 @@
 
                     }
                     else {
-                        tabladata.row(filaseleccionada).data(Categoria).draw(false);
+                        if (data.resultado) {
+                            tabladata.row(filaseleccionada).data(Categoria).draw(false);
+                            filaseleccionada = null;
+                            $("#FormModal").modal("hide");
+                        }
+                        else {
+                            $("#mensajeError").text(data.mensaje);
+                            $("#mensajeError").show();
+                        }
                     }
 
                 },

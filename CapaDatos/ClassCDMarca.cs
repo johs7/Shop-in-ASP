@@ -83,7 +83,7 @@ namespace CapaDatos
                 using (SqlConnection oconexion = new SqlConnection(ClassConexion.cn))
                 {
                     SqlCommand cmd = new SqlCommand("sp_EditarMarca", oconexion);
-                    cmd.Parameters.AddWithValue("Idcategoria", obj.IdMarca);
+                    cmd.Parameters.AddWithValue("IdMarca", obj.IdMarca);
                     cmd.Parameters.AddWithValue("Descripcion", obj.Descripcion);
                     cmd.Parameters.AddWithValue("Activo", obj.Activo);
                     cmd.Parameters.Add("Resultado", SqlDbType.Bit).Direction = ParameterDirection.Output;
