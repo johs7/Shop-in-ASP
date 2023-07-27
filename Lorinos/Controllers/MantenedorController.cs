@@ -5,8 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using CapaEntidad;
-using CapaNegocios;
+
     namespace Lorinos.Controllers
 {
     public class MantenedorController : Controller
@@ -24,6 +23,7 @@ using CapaNegocios;
         {
             return View();
         }
+        #region categoria
         [HttpGet]
         public JsonResult ListarCategorias()
         {
@@ -56,5 +56,42 @@ using CapaNegocios;
             respuesta = new ClassCNCategoria().Eliminar(id, out mensaje);
             return Json(new { resultado = respuesta, mensaje = mensaje }, JsonRequestBehavior.AllowGet);
         }
+        #endregion
+
+        #region marca
+        [HttpGet]
+        public JsonResult ListarMarca()
+        {
+            List<ClassMarca> oLista = new List<ClassMarca>();
+            oLista = new ClassCN_Marca().Listar();
+            return Json(new { data = oLista }, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        public JsonResult GuardarMarca(ClassMarca obj)
+        {
+            object resultado;
+            string mensaje = string.Empty;
+
+            if (obj.IdMarca == 0)
+            {
+                resultado = new ClassCN_Marca().Registrar(obj, out mensaje);
+            }
+            else
+            {
+                resultado = new ClassCN_Marca().Editar(obj, out mensaje);
+            }
+            return Json(new { resultado = resultado, mensaje = mensaje }, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        public JsonResult EliminarMarca(int id)
+        {
+            bool respuesta = false;
+            string mensaje = string.Empty;
+
+            respuesta = new ClassCN_Marca().Eliminar(id, out mensaje);
+            return Json(new { resultado = respuesta, mensaje = mensaje }, JsonRequestBehavior.AllowGet);
+        }
+        #endregion
+
     }
 }
