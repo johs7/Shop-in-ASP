@@ -37,7 +37,7 @@ namespace CapaDatos
                             Lista.Add(
                                 new ClassProducto()
                                 {
-                                    IdProducto = Convert.ToString(dr["IdProducto"].ToString()),
+                                    IdProducto = Convert.ToInt32(dr["IdProducto"].ToString()),
                                     Nombre = dr["Nombre"].ToString(),
                                     Descripcion = dr["Descripcion"].ToString(),
                                     oMarca = new ClassMarca()

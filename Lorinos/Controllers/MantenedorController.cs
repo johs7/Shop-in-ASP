@@ -1,7 +1,9 @@
 ﻿using CapaEntidad;
 using CapaNegocios;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -84,6 +86,64 @@ using System.Web.Mvc;
         }
         [HttpPost]
         public JsonResult EliminarMarca(int id)
+        {
+            bool respuesta = false;
+            string mensaje = string.Empty;
+
+            respuesta = new ClassCN_Marca().Eliminar(id, out mensaje);
+            return Json(new { resultado = respuesta, mensaje = mensaje }, JsonRequestBehavior.AllowGet);
+        }
+        #endregion
+        #region producto
+        [HttpGet]
+        public JsonResult ListarProducto()
+        {
+            List<ClassProducto> oLista = new List<ClassProducto>();
+            oLista = new ClassCNProducto().Listar();
+            return Json(new { data = oLista }, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        public JsonResult GuardarProducto(string Objeto,HttpPostedFileBase)
+        {
+            object resultado;
+            string mensaje = string.Empty;
+            bool operacion_exitosa = true;
+            bool guardar_imagen_exito = true;
+
+            ClassProducto oProducto= new ClassProducto();
+            oProducto = JsonConvert.DeserializeObject<ClassProducto>(Objeto);
+            decimal precio;
+
+            if(decimal.TryParse(oProducto.PrecioTexto,NumberStyles.AllowDecimalPoint,new CultureInfo("es-NI"),out precio))
+            {
+                oProducto.Precio = precio;
+            }
+            else
+            {
+                return Json(new { resultado = false, mensaje = "El formato del precio no es valido" }, JsonRequestBehavior.AllowGet);
+            }
+
+
+            if (oProducto.IdProducto == 0)
+            {
+               int idproductogenerado=  new ClassCNProducto().Registrar(oProducto, out mensaje);
+                if (idproductogenerado != 0)
+                {
+                    oProducto.IdProducto = idproductogenerado;
+                }
+                else
+                {
+                    operacion_exitosa = false;
+                }
+            }
+            else
+            {
+                resultado = new ClassCNProducto().Editar(oProducto, out mensaje);
+            }
+            return Json(new { resultado = resultado, mensaje = mensaje }, JsonRequestBehavior.AllowGet);
+        }
+        [HttpPost]
+        public JsonResult EliminarProducto(int id)
         {
             bool respuesta = false;
             string mensaje = string.Empty;
