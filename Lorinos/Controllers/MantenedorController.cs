@@ -3,7 +3,9 @@ using CapaNegocios;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -103,7 +105,7 @@ using System.Web.Mvc;
             return Json(new { data = oLista }, JsonRequestBehavior.AllowGet);
         }
         [HttpPost]
-        public JsonResult GuardarProducto(string Objeto,HttpPostedFileBase)
+        public JsonResult GuardarProducto(string Objeto,HttpPostedFileBase ArchivoImagen)
         {
             object resultado;
             string mensaje = string.Empty;
@@ -138,9 +140,38 @@ using System.Web.Mvc;
             }
             else
             {
-                resultado = new ClassCNProducto().Editar(oProducto, out mensaje);
+                operacion_exitosa = new ClassCNProducto().Editar(oProducto, out mensaje);
             }
-            return Json(new { resultado = resultado, mensaje = mensaje }, JsonRequestBehavior.AllowGet);
+            if (operacion_exitosa)
+            {
+                if(ArchivoImagen != null)
+                {
+                    string RutaGuardar = ConfigurationManager.AppSettings["ServidorFotos"];
+                    string Extension= Path.GetExtension(ArchivoImagen.FileName);
+                    string NombreImagen = string.Concat(oProducto.IdProducto.ToString(), Extension);
+                    try
+                    {
+                        ArchivoImagen.SaveAs(string.Concat(RutaGuardar, NombreImagen));
+                    }
+                    catch(Exception ex)
+                    {
+                        string msg= ex.Message;
+                        guardar_imagen_exito = false;
+                    }
+                    if (guardar_imagen_exito)
+                    {
+                        oProducto.RutaImagen = RutaGuardar;
+                        oProducto.NombreImagen = NombreImagen;
+                        bool rspta= new ClassCNProducto().GuardarDatosImagen(oProducto, out mensaje);
+                    }
+                    else
+                    {
+                        mensaje = "No se pudo guardar la imagen";
+                    }
+                }
+            }
+            return Json(new { operacionExitosa = operacion_exitosa,idGenerado=oProducto.IdProducto, mensaje = mensaje }, JsonRequestBehavior.AllowGet);
+
         }
         [HttpPost]
         public JsonResult EliminarProducto(int id)
