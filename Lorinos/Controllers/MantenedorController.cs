@@ -62,6 +62,7 @@ using System.Web.Mvc;
         }
         #endregion
 
+        
         #region marca
         [HttpGet]
         public JsonResult ListarMarca()
@@ -174,12 +175,25 @@ using System.Web.Mvc;
 
         }
         [HttpPost]
+        public JsonResult ImagenProducto(int id)
+        {
+            bool conversion;
+            ClassProducto oProducto = new ClassCNProducto().Listar().Where(x => x.IdProducto == id).FirstOrDefault();
+            string textoBase64 = CN_Recurso.ConvertirBase64(Path.Combine(oProducto.RutaImagen, oProducto.NombreImagen), out conversion);
+            return Json(new
+            {
+                resultado = conversion,
+                mensaje = textoBase64,
+                extension = Path.GetExtension(oProducto.NombreImagen)
+            },
+            JsonRequestBehavior.AllowGet);
+        }
         public JsonResult EliminarProducto(int id)
         {
             bool respuesta = false;
             string mensaje = string.Empty;
 
-            respuesta = new ClassCN_Marca().Eliminar(id, out mensaje);
+            respuesta = new ClassCNProducto().Eliminar(id, out mensaje);
             return Json(new { resultado = respuesta, mensaje = mensaje }, JsonRequestBehavior.AllowGet);
         }
         #endregion

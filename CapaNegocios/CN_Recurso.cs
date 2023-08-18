@@ -62,9 +62,10 @@ namespace CapaNegocios
             }
             return resultado;
         }
-        public static string ConvertirBase64(string ruta,bool conversion)
+        public static string ConvertirBase64(string ruta, out bool conversion)
         {
             string textobase64 = string.Empty;
+            conversion = true;
             try
             {
                 byte[] bytesImagen = File.ReadAllBytes(ruta);
