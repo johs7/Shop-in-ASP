@@ -90,6 +90,11 @@ namespace CapaNegocios
             }
         }
 
+        public bool GuardarDatosImagen(ClassProducto obj,out string Mensaje)
+        {
+            return objCapaDato.GuardarDatosImagen(obj, out Mensaje);
+        }
+
 
         public bool Eliminar(int id, out string Mensaje)
         {

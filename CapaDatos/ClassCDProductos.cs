@@ -171,7 +171,7 @@ namespace CapaDatos
             }
             return resultado;
         }
-        public bool GuardarDatosImagen(ClassProducto obj,string Mensaje)
+        public bool GuardarDatosImagen(ClassProducto obj, out string Mensaje)
         {
             bool resultado = false;
             Mensaje = string.Empty;
