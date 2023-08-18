@@ -44,6 +44,7 @@
   <ItemGroup>
     <Compile Include="ClassCDCategoria.cs" />
     <Compile Include="ClassCDMarca.cs" />
+    <Compile Include="ClassCDProductos.cs" />
     <Compile Include="ClassCDUsuarios.cs" />
     <Compile Include="ClassConexion.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
